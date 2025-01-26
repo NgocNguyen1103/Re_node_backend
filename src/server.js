@@ -1,4 +1,5 @@
 const express = require('express')
+const db = require('./config/db_config')
 const path = require('path')
 require('dotenv').config()
 const configViewEngine = require('./config/view_engine')
@@ -10,12 +11,15 @@ const app = express() //express app
 const port = process.env.PORT || 6969
 const host_name = process.env.HOST_NAME
 
+
 //config template, static file, ....
 configViewEngine(app)
 
 
 //routes
 app.use('/test', webRoutes) //adding a route to classify in the future (difference version for ex)
+
+
 
 //run server on defined port
 app.listen(port, () => {
