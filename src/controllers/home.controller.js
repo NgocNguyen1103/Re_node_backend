@@ -2,11 +2,11 @@ const db = require('../config/db_config')
 
 
 const getHomePage = (req,res) =>{
-    res.render('sample.ejs')
+    res.render('home_page.ejs')
 }
 
 const getAbc = (req, res) => {
-    res.send("ABC")
+    res.render("sample.ejs")
 }
 
 const getUsers = (req, res) => {
