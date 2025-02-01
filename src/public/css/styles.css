@@ -40,3 +40,13 @@ li a:hover:not(.active) {
 li:active {
     background: #04AA6D;
 }
+
+fieldset {
+    margin-top: 50px;
+    padding: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 600px;
+    gap: 10px;
+}

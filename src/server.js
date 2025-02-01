@@ -14,8 +14,9 @@ const host_name = process.env.HOST_NAME
 
 //config template, static file, ....
 configViewEngine(app)
-
-
+//middleware have to be defined before routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 //routes
 app.use('/test', webRoutes) //adding a route to classify in the future (difference version for ex)
 

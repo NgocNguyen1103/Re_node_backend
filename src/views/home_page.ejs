@@ -10,8 +10,6 @@
 </head>
 
 <body>
-
-
     <ul>
         <li class="activate"><a href="#home">Home</a></li>
         <li><a href="#news">News</a></li>
@@ -20,7 +18,18 @@
     </ul>
 
 
-
+    <form action="/test/register" method="post">
+        <fieldset>
+            <legend>Registration form</legend>
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email" />
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" />
+            <label for="city">City: </label>
+            <input type="text" id="city" name="city" />
+            <input type="submit" value="submit">
+        </fieldset>
+    </form>
 
 </body>
 
