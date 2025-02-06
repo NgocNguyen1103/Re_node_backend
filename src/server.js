@@ -18,12 +18,12 @@ configViewEngine(app)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //routes
-app.use('/test', webRoutes) //adding a route to classify in the future (difference version for ex)
+// app.use('/test', webRoutes) //adding a route to classify in the future (difference version for ex)
 
-
+app.use(webRoutes)
 
 //run server on defined port
 app.listen(port, () => {
-    console.log(`Server running on http://${host_name}:${port}/test`);
+    console.log(`Server running on http://${host_name}:${port}`);
 
 })

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>New User</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li class="activate"><a href="/newuser">New User</a></li>
+    </ul>
+    <form action="/register" method="post" class="registration-form">
+        <fieldset>
+            <legend>Registration form</legend>
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email" />
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" />
+            <label for="city">City: </label>
+            <input type="text" id="city" name="city" />
+            <input type="submit" value="submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>

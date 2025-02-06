@@ -8,28 +8,64 @@
     <title>Document</title>
 
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #8a8a8a;
+    }
+
+    tr:hover {
+        background-color: #ccc;
+    }
+
+    .list-container {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .list-user-header {
+            font-size: 38px;
+            font-weight: 600;
+        }
+
+        .list-user {
+            font-size: 20px;
+        }
+
+    }
+</style>
 
 <body>
     <ul>
-        <li class="activate"><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
+        <li class="activate"><a href="/">Home</a></li>
+        <li><a href="/newuser">New User</a></li>
     </ul>
 
+    <div class="list-container">
+        <div class="list-user-header"> List of users</div>
+        <table class="list-user">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
 
-    <form action="/test/register" method="post">
-        <fieldset>
-            <legend>Registration form</legend>
-            <label for="email">Email: </label>
-            <input type="text" id="email" name="email" />
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" />
-            <label for="city">City: </label>
-            <input type="text" id="city" name="city" />
-            <input type="submit" value="submit">
-        </fieldset>
-    </form>
+
+
+        </table>
+    </div>
+
+
 
 </body>
 
