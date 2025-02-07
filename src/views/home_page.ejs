@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
 
-    <title>Document</title>
+    <title>Home Page</title>
 
 </head>
 <style>
@@ -23,7 +23,7 @@
     }
 
     tr:hover {
-        background-color: #ccc;
+        background-color: #f1f1f1;
     }
 
     .list-container {
@@ -39,6 +39,26 @@
 
         .list-user {
             font-size: 20px;
+
+            .btn {
+                width: 50px;
+                height: 30px;
+                color: rgb(241, 241, 241);
+                font-weight: 500;
+                border: 0;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left: 5px;
+            }
+
+            .edit {
+                background: rgb(255, 238, 0);
+                color: black;
+            }
+
+            .delete {
+                background: rgb(255, 60, 11);
+            }
         }
 
     }
@@ -58,7 +78,30 @@
                 <th>Email</th>
                 <th>Name</th>
                 <th>City</th>
+                <th>Actions</th>
             </tr>
+            <% list_users.forEach(user=> { %>
+                <tr>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <button class="edit btn">Edit</button>
+                        <button class="delete btn">Delete</button>
+                    </td>
+                </tr>
+                <% }); %>
+
+
 
 
 

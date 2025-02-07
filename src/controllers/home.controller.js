@@ -1,8 +1,15 @@
 const db = require('../config/db_config')
+const { getAllUsers } = require("../services/CRUD_service")
 
+const getHomePage = async (req, res) => {
 
-const getHomePage = (req, res) => {
-    res.render('home_page.ejs')
+    // let [results, field] = await db.query('select * from Users') 
+
+    let users = await getAllUsers() //getAllUsers is async function, so need await to get data
+
+    res.render('home_page.ejs', { list_users: users })
+    //previous error: send Json.stringify => cannot use forEach
+    
 }
 
 const getAbc = (req, res) => {
@@ -12,6 +19,8 @@ const getAbc = (req, res) => {
 const getUsers = async (req, res) => {
 
     let users = []
+
+    //using callback
     // db.query(
     //     'SELECT * FROM Users',
     //     function (err, results, fields) {
@@ -23,6 +32,7 @@ const getUsers = async (req, res) => {
     //         res.send(JSON.stringify(users))
     //     }
     // )
+
     const [results, fields] = await db.query('select * from Users')
     users = results
     console.log(results);
@@ -46,8 +56,9 @@ const registerUser = async (req, res) => {
 
     const [results, field] = await db.query(query, values)
     console.log(results);
-    
+
     res.send("welcome" + " " + name)
+
     // db.query(query, values, (err, results) => {
     //     if (err) {
     //         console.error('Error inserting data:', err);
