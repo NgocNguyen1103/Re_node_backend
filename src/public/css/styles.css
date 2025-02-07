@@ -50,6 +50,10 @@ li:active {
     padding-top: 100px;
 }
 
+.d-none {
+    display: none;
+}
+
 fieldset {
 
     padding: 10px;

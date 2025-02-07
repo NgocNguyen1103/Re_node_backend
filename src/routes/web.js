@@ -1,7 +1,7 @@
 // Server side rendering
 
 const express = require('express')
-const { getHomePage, getAbc, getUsers, registerUser, getRegisterForm } = require('../controllers/home.controller')
+const { getHomePage, getAbc, getUsers, registerUser, getRegisterForm, getUpdateForm, updateUser } = require('../controllers/home.controller')
 const router = express.Router()
 
 //route.method('route', handler)
@@ -16,6 +16,9 @@ router.get('/newuser', getRegisterForm)
 
 router.post('/register', registerUser)
 
+router.get('/update-user/:user_id', getUpdateForm)
+
+router.post('/update', updateUser)
 
 
 module.exports = router;

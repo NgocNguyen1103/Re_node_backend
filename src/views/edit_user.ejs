@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Update User Information</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/newuser">New User</a></li>
+    </ul>
+    <%= JSON.stringify(user) %>
+        <form action="/update" method="post" class="registration-form">
+            <fieldset>
+                <legend>Update form</legend>
+                <div class="d-none">
+                    <label for="id">Id: </label>
+                    <input type="text" id="id" name="id" value="<%=user.id  %>" />
+                </div>
+
+                <label for="email">Email: </label>
+                <input type="text" id="email" name="email" value="<%=user.email  %>" />
+                <!-- should have a check step to handle the obj property -->
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" value="<%= user.name  %>" />
+                <label for="city">City: </label>
+                <input type="text" id="city" name="city" value="<%= user.city %>" />
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+</body>
+
+</html>

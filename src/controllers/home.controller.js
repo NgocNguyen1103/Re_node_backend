@@ -1,5 +1,5 @@
 const db = require('../config/db_config')
-const { getAllUsers } = require("../services/CRUD_service")
+const { getAllUsers, getUserById, updateUserById } = require("../services/CRUD_service")
 
 const getHomePage = async (req, res) => {
 
@@ -9,7 +9,7 @@ const getHomePage = async (req, res) => {
 
     res.render('home_page.ejs', { list_users: users })
     //previous error: send Json.stringify => cannot use forEach
-    
+
 }
 
 const getAbc = (req, res) => {
@@ -45,6 +45,15 @@ const getRegisterForm = (req, res) => {
     res.render("create_user.ejs")
 }
 
+const getUpdateForm = async (req, res) => {
+    const user_id = req.params.user_id; //get id of params in string
+    let user_infor = await getUserById(user_id);
+    //console.log(user_infor);
+
+    res.render("edit_user.ejs", { user: user_infor })
+}
+
+
 const registerUser = async (req, res) => {
     const email = req.body.email
     const name = req.body.name
@@ -57,7 +66,7 @@ const registerUser = async (req, res) => {
     const [results, field] = await db.query(query, values)
     console.log(results);
 
-    res.send("welcome" + " " + name)
+    res.redirect('/')
 
     // db.query(query, values, (err, results) => {
     //     if (err) {
@@ -73,10 +82,32 @@ const registerUser = async (req, res) => {
 
 }
 
+const updateUser = async (req, res) => {
+    const email = req.body.email
+    const name = req.body.name
+    const city = req.body.city
+    const user_id = req.body.id
+
+    // const query = 'UPDATE Users SET email = ?, name = ?, city = ? WHERE id = ?'
+    // const values = [email, name, city, user_id]
+    // console.log(values);
+    // const [results, fields] = await db.query(query, values);
+    let result = await updateUserById(email, name, city, user_id)
+
+
+    console.log(result);
+
+    res.redirect('/')
+
+
+}
+
 module.exports = {
     getHomePage,
     getAbc,
     getUsers,
     registerUser,
     getRegisterForm,
+    getUpdateForm,
+    updateUser
 }
